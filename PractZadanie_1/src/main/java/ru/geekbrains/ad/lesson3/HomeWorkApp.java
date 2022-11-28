@@ -8,9 +8,9 @@ public class HomeWorkApp {
     public static Random random = new Random();
 
     public static void main(String[] args) {
-          //taskOne(6);
-          //taskTwo();
-          //taskThree();
+          taskOne(6);
+          taskTwo();
+          taskThree();
           taskFour(4);
           taskFive(4,12);
     }
@@ -79,6 +79,7 @@ public class HomeWorkApp {
         int[][] mass_four = new int[size][size];
 
         System.out.println("Значения массива:");
+        //заполняем массив нулями и выводим в консоль
         for(int i = 0; i < size; i++) {
             for(int j = 0; j < size; j++) {
                 mass_four[i][j] = 0;
@@ -91,6 +92,7 @@ public class HomeWorkApp {
 
         System.out.println();
         System.out.println("Новые значения массива:");
+        //проставляем единички для первой диагонали и выводим в консоль
         for(int i = 0; i < size; i++) {
             for(int j = 0; j < size; j++) {
                 if (i == j) {
@@ -103,15 +105,16 @@ public class HomeWorkApp {
             }
         }
 
-
         System.out.println();
         System.out.println("Две диагонали:");
         int k = size - 1;
+        //проставляем единички для второй диагонали
         for(int i = 0; i < size; i++) {
             mass_four[i][k] = 1;
             k = k - 1;
         }
 
+        //выводим массив со второй диагональю в консоль
         for(int i = 0; i < size; i++) {
             for(int j = 0; j < size; j++) {
                 if (j == (size - 1)) {
