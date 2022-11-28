@@ -16,7 +16,8 @@ public class HomeWorkApp {
           taskSix(4);
           int[] values = {2, 2, 3, 2, 5}; //массив для taskSeven
           System.out.println(taskSeven(values,3));
-          //taskEight();
+          int[] mass_eight = {1, 2, 3, 4}; //массив для taskEight
+          taskEight(mass_eight, -1);
     }
 
     public static void taskOne(int size) {
@@ -215,7 +216,7 @@ public class HomeWorkApp {
         return left == right;
     }
 
-    public static void taskEight(int a, int b) {
+    public static void taskEight(int[] numbers, int shift) {
         /*
         8. *** Написать метод, которому на вход подается одномерный массив и число n
         (может быть положительным, или отрицательным), при этом метод должен сместить
@@ -225,6 +226,12 @@ public class HomeWorkApp {
         [ 6, 1, 3, 5 ]. При каком n в какую сторону сдвиг можете выбирать сами.
          */
 
+        int size = numbers.length; //определяем длину массива
+        int temp;
+        if (shift < 0) {
+            shift = shift * (-1);
+            for(int i = 0; i < size; i++)
+        }
     }
 
 }
