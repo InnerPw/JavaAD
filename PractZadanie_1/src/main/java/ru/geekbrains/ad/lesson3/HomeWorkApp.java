@@ -14,7 +14,8 @@ public class HomeWorkApp {
           taskFour(4);
           taskFive(4,12);
           taskSix(4);
-          //taskSeven();
+          int[] values = {2, 2, 3, 2, 5}; //массив для taskSeven
+          System.out.println(taskSeven(values,3));
           //taskEight();
     }
 
@@ -180,7 +181,7 @@ public class HomeWorkApp {
         System.out.println("Максимальный элемент: " + compare_max);
     }
 
-    public static void taskSeven(int a, int b) {
+    public static boolean taskSeven(int[] numbers, int div) {
         /*
         7. ** Написать метод, в который передается не пустой одномерный целочисленный
         массив, метод должен вернуть true, если в массиве есть место, в котором сумма
@@ -194,6 +195,24 @@ public class HomeWorkApp {
         никакого отношения к ИЛИ.
          */
 
+        //div - с номера этого элемента начинается правая часть массива
+        int size = numbers.length; //определяем длину массива
+        int left = 0; //объявляем переменную для суммы левой части
+        int right = 0; //объявляем переменную для суммы правой части
+        System.out.println();
+        System.out.println("Задание 7:");
+
+        //подсчитываем сумму левой части
+        for(int i = 0; i < div; i++) {
+            left = left + numbers[i];
+        }
+
+        //подсчитываем сумму правой части
+        for(int j = div; j < size; j++) {
+            right = right + numbers[j];
+        }
+
+        return left == right;
     }
 
     public static void taskEight(int a, int b) {
