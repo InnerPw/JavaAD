@@ -227,11 +227,15 @@ public class HomeWorkApp {
          */
 
         int size = numbers.length; //определяем длину массива
-        int temp;
-        if (shift < 0) {
-            shift = shift * (-1);
-            for(int i = 0; i < size; i++)
+        int temp1;
+        int temp2;
+        int shift_exam;
+        if(shift > 0){
+            for(int i = 0; i < size; i++){
+                shift_exam = i + shift;
+            }
         }
+
     }
 
 }
