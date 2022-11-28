@@ -13,6 +13,9 @@ public class HomeWorkApp {
           taskThree();
           taskFour(4);
           taskFive(4,12);
+          taskSix(4);
+          //taskSeven();
+          //taskEight();
     }
 
     public static void taskOne(int size) {
@@ -21,6 +24,7 @@ public class HomeWorkApp {
         [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ]. С помощью цикла и условия заменить 0 на 1, 1 на 0;
          */
         int[] mass_one = new int[size];
+        System.out.println("Задание 1:");
         System.out.println("Значения массива:");
         for(int i = 0; i < size; i++) {
             mass_one[i] = random.nextInt(2);
@@ -45,6 +49,8 @@ public class HomeWorkApp {
         значениями 1 2 3 4 5 6 7 8 … 100;
          */
         int[] mass_two = new int[100];
+        System.out.println();
+        System.out.println("Задание 2:");
         for(int i = 0; i < 100; i++) {
             mass_two[i] = i + 1;
             System.out.println("mass_two[" + i + "] = " + mass_two[i]);
@@ -59,6 +65,8 @@ public class HomeWorkApp {
         циклом, и числа меньшие 6 умножить на 2;
          */
         int[] mass_three = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        System.out.println();
+        System.out.println("Задание 3:");
         System.out.println("Значения массива: " + Arrays.toString(mass_three));
         for(int i = 0; i < mass_three.length; i++) {
             if (mass_three[i] < 6) {
@@ -77,7 +85,8 @@ public class HomeWorkApp {
         [0][0], [1][1], [2][2], …, [n][n];
          */
         int[][] mass_four = new int[size][size];
-
+        System.out.println();
+        System.out.println("Задание 4:");
         System.out.println("Значения массива:");
         //заполняем массив нулями и выводим в консоль
         for(int i = 0; i < size; i++) {
@@ -133,6 +142,7 @@ public class HomeWorkApp {
          */
         int[] mass_five = new int[len];
         System.out.println();
+        System.out.println("Задание 5:");
         System.out.println("Значения массива:");
         for(int i = 0; i < len; i++) {
             mass_five[i] = initialValue;
@@ -140,11 +150,34 @@ public class HomeWorkApp {
         System.out.println(Arrays.toString(mass_five));
     }
 
-    public static void taskSix(int a, int b) {
+    public static void taskSix(int size) {
         /*
         6. * Задать одномерный массив и найти в нем минимальный и максимальный элементы ;
          */
+        int[] mass_six = new int[size];
+        System.out.println();
+        System.out.println("Задание 6:");
+        System.out.println("Значения массива:");
+        //заполняем массив случайными числами
+        for(int i = 0; i < size; i++) {
+            mass_six[i] = random.nextInt(150);
+        }
+        System.out.println(Arrays.toString(mass_six));
+        System.out.println();
 
+        int compare_min = mass_six[0]; //присваиваем начальное значение для сравнения
+        int compare_max = mass_six[0]; //присваиваем начальное значение для сравнения
+        //сравниваем элементы
+        for(int i = 0; i < size; i++) {
+            if (mass_six[i] < compare_min) {
+                compare_min = mass_six[i];
+            }
+            if (mass_six[i] > compare_max) {
+                compare_max = mass_six[i];
+            }
+        }
+        System.out.println("Минимальный элемент: " + compare_min);
+        System.out.println("Максимальный элемент: " + compare_max);
     }
 
     public static void taskSeven(int a, int b) {
