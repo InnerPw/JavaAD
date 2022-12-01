@@ -50,8 +50,8 @@ public class HomeWorkApp {
     }
 
     private static int getSizeFromUser() {
-        System.out.println("Введите размер игрового поля: ");
-        return in.nextInt();
+        System.out.println("Необходимо выбрать размер игрового поля: ");
+        return getValidNumberFromScanner(3, 9);
     }
 
     private static int getWinSize() {
@@ -169,9 +169,9 @@ public class HomeWorkApp {
 
         while (true) {
             System.out.println("Введите координату строки: ");
-            rowNumber = in.nextInt() - 1;
+            rowNumber = getValidNumberMapLineFromScanner();
             System.out.println("Введите координату столбца: ");
-            columnNumber = in.nextInt() - 1;
+            columnNumber = getValidNumberMapLineFromScanner();
 
             if(isCellFree(rowNumber, columnNumber)) {
                 break;
@@ -182,6 +182,30 @@ public class HomeWorkApp {
 
         MAP[rowNumber][columnNumber] = DOT_HUMAN;
         turnsCount++;
+    }
+
+    private static int getValidNumberMapLineFromScanner() {
+        return getValidNumberFromScanner(1, size) - 1;
+    }
+
+    private static int getValidNumberFromScanner(int min, int max) {
+        while (true) {
+            if (in.hasNextInt()) {
+                int n = in.nextInt();
+                if (isNumberValid(n, min, max)) {
+                    return n;
+                }
+                System.out.printf("Ошибка! Проверьте значение координаты. Должно быть от %s до %s. Введено: %s%n", min, max, n);
+            } else {
+                System.out.printf("ОШИБКА! Ввод допускает лишь целые числа. %s - не целое число!%n", in.next());
+                System.out.print("Введите число: ");
+            }
+        }
+
+    }
+
+    private static boolean isNumberValid(int n, int min, int max) {
+        return n >= min && n <= max;
     }
 
     private static void aiTurn() {
