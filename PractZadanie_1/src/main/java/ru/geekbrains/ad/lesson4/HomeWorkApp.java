@@ -5,7 +5,10 @@ import java.util.Scanner;
 
 public class HomeWorkApp {
     private static int size;
-    private static int winSize;
+
+    private static int rLN;
+    private static int cLN;
+    private static int wcount = 0;
     private static final char DOT_EMPTY = '*';
     private static final char DOT_HUMAN = 'X';
     private static final char DOT_AI = '0';
@@ -45,7 +48,7 @@ public class HomeWorkApp {
         //получить размер игрового поля
         size = getSizeFromUser();
         //подобрать победную серию для выбранного размера
-        winSize = getWinSize();
+        //winSize = getWinSize();
         initMap();
     }
 
@@ -157,6 +160,22 @@ public class HomeWorkApp {
     }
 
     private static boolean checkWin(char symbol) {
+        //проверка строки
+        for (int i = 0; i < size; i++) {
+            if (MAP[rLN][i] == symbol) {
+                wcount++;
+            } else wcount = 0;
+        }
+        //проверка столбца
+        for (int i = 0; i < size; i++) {
+            if (MAP[i][cLN] == symbol) {
+                wcount++;
+            } else wcount = 0;
+        }
+        //проверка основной диагонали
+
+        //проверка вторичной диагонали
+
         return false;
     }
 
@@ -170,8 +189,10 @@ public class HomeWorkApp {
         while (true) {
             System.out.println("Введите координату строки: ");
             rowNumber = getValidNumberMapLineFromScanner();
+            rLN = getValidNumberMapLineFromScanner();
             System.out.println("Введите координату столбца: ");
             columnNumber = getValidNumberMapLineFromScanner();
+            cLN = getValidNumberMapLineFromScanner();
 
             if(isCellFree(rowNumber, columnNumber)) {
                 break;
