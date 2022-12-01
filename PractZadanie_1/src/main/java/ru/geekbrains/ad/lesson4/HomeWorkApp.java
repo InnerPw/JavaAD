@@ -5,10 +5,11 @@ import java.util.Scanner;
 
 public class HomeWorkApp {
     private static int size;
+    public static int winSize;
 
     private static int rLN;
     private static int cLN;
-    private static int wcount = 0;
+    private static int wcount;
     private static final char DOT_EMPTY = '*';
     private static final char DOT_HUMAN = 'X';
     private static final char DOT_AI = '0';
@@ -48,7 +49,7 @@ public class HomeWorkApp {
         //получить размер игрового поля
         size = getSizeFromUser();
         //подобрать победную серию для выбранного размера
-        //winSize = getWinSize();
+        winSize = getWinSize();
         initMap();
     }
 
@@ -126,7 +127,7 @@ public class HomeWorkApp {
 
     private static boolean checkEnd(char symbol) {
         //победа
-        /*
+
         if(checkWin(symbol)) {
             if (symbol == DOT_HUMAN) {
                 System.out.println("УРА! ВЫ ПОБЕДИЛИ!");
@@ -134,7 +135,7 @@ public class HomeWorkApp {
                 System.out.println("Восстание близко... Скайнет победил...");
             }
         }
-        */
+
 
         //ничья
         if (checkDraw()) {
@@ -164,23 +165,57 @@ public class HomeWorkApp {
         for (int i = 0; i < size; i++) {
             if (MAP[rLN][i] == symbol) {
                 wcount++;
-            } else wcount = 0;
+            }
         }
+        if (wcount == winSize) {
+            return true;
+        } else wcount = 0;
+
         //проверка столбца
         for (int i = 0; i < size; i++) {
             if (MAP[i][cLN] == symbol) {
                 wcount++;
-            } else wcount = 0;
-        }
-        //проверка основной диагонали
-        for (int i = (size - cLN); i < size; i++) {
-            for (int j = (size - rLN); j < size; j++) {
-                if (MAP[i][j] == symbol) {
-                    wcount++;
-                } else wcount = 0;
             }
         }
+        if (wcount == winSize) {
+            return true;
+        } else wcount = 0;
+        /*//проверка основной диагонали
+        int rLNmin;
+        rLNmin = rLN - winSize;
+        if (rLNmin < 0) {
+            rLNmin = 0;
+        }
+
+        int cLNmin;
+        cLNmin = cLN - winSize;
+        if (cLNmin < 0) {
+            cLNmin = 0;
+        }
+
+        int rLNmax;
+        rLNmax = rLN + winSize;
+        if (rLNmax > size) {
+            rLNmax = size - 1;
+        }
+
+        int cLNmax;
+        cLNmax = cLN + winSize;
+        if (cLNmax > size) {
+            cLNmax = size - 1;
+        }
+
+        for (int i = rLNmin, j = cLNmin; i <= rLNmax && j <= cLNmax; i++, j++) {
+            if (MAP[i][j] == symbol) {
+                wcount++;
+            } else wcount = 0;
+        }
+        if (wcount == winSize) {
+            return true;
+        }*/
+
         //проверка вторичной диагонали
+
 
         return false;
     }
@@ -195,10 +230,10 @@ public class HomeWorkApp {
         while (true) {
             System.out.println("Введите координату строки: ");
             rowNumber = getValidNumberMapLineFromScanner();
-            rLN = getValidNumberMapLineFromScanner();
+            rLN = rowNumber;
             System.out.println("Введите координату столбца: ");
             columnNumber = getValidNumberMapLineFromScanner();
-            cLN = getValidNumberMapLineFromScanner();
+            cLN = columnNumber;
 
             if(isCellFree(rowNumber, columnNumber)) {
                 break;
