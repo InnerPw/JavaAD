@@ -182,7 +182,8 @@ public class HomeWorkApp {
         if (wcount == winSize) {
             return true;
         } else wcount = 0;
-        /*//проверка основной диагонали
+
+        //проверка основной диагонали
         int rLNmin;
         rLNmin = rLN - winSize;
         if (rLNmin < 0) {
@@ -207,14 +208,14 @@ public class HomeWorkApp {
             cLNmax = size - 1;
         }
 
-        for (int i = rLNmin, j = cLNmin; i <= rLNmax && j <= cLNmax; i++, j++) {
+        for (int i = rLNmin, j = cLNmin; i < rLNmax && j < cLNmax; i++, j++) {
             if (MAP[i][j] == symbol) {
                 wcount++;
             } else wcount = 0;
         }
         if (wcount == winSize) {
             return true;
-        }*/
+        }
 
         //проверка вторичной диагонали
 
