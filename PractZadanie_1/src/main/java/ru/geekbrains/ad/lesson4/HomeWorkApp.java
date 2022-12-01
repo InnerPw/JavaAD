@@ -173,7 +173,11 @@ public class HomeWorkApp {
             } else wcount = 0;
         }
         //проверка основной диагонали
-
+        for (int i = 0; i < size; i++) {
+            if (MAP[rLN-1][cLN-1] == symbol) {
+                wcount++;
+            } else wcount = 0;
+        }
         //проверка вторичной диагонали
 
         return false;
