@@ -131,8 +131,10 @@ public class HomeWorkApp {
         if(checkWin(symbol)) {
             if (symbol == DOT_HUMAN) {
                 System.out.println("УРА! ВЫ ПОБЕДИЛИ!");
-            } else {
+                return true;
+            } else if (symbol == DOT_HUMAN) {
                 System.out.println("Восстание близко... Скайнет победил...");
+                return true;
             }
         }
 
@@ -215,7 +217,6 @@ public class HomeWorkApp {
         }*/
 
         //проверка вторичной диагонали
-
 
         return false;
     }
