@@ -220,9 +220,10 @@ public class HomeWorkApp {
 
         //проверка вторичной диагонали
 
+       /*
         //int rLNmin;
         rLNmin = rLN - winSize;
-        if (rLNmin < 0) {
+        if (rLNmin <= 0) {
             rLNmin = 0;
         }
 
@@ -241,23 +242,20 @@ public class HomeWorkApp {
         //int cLNmax;
         cLNmax = cLN - winSize;
         if (cLNmax < 0) {
-            cLNmax = 0;
+            cLNmax = cLN;
         }
 
-        System.out.println(rLNmin);
-        System.out.println(cLNmin);
-        System.out.println(rLNmax);
-        System.out.println(cLNmax);
 
-        for (int i = rLNmin, j = cLNmin; i < rLNmax && j > cLNmax; i++, j--) {
+
+        for (int i = rLNmin, j = cLNmin; i <= rLNmax && j >= cLNmax; i++, j--) {
             if (MAP[i][j] == symbol) {
                 wcount_diag2++;
-                System.out.println(wcount_diag2);
             } else wcount_diag2 = 0;
         }
         if (wcount_diag2 == winSize) {
             return true;
         }
+        */
 
 
         return false;
