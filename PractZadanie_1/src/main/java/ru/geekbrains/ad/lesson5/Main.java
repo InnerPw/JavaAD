@@ -14,6 +14,5 @@ public class Main {
             if (employee.age > 40)
             employee.employeeInfo();
         }
-
     }
 }

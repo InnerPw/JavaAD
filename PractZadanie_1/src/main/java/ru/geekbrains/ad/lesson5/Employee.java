@@ -31,4 +31,11 @@ public class Employee {
         System.out.println(String.format("Сотрудник: %s, Должность: %s, Адрес электронной почты: %s, Зарплата: %s, Возраст: %s", FIO, jobTitle, email, salary, age));
     }
 
+     /*void getEmloyeeAge(Employee employeeArray) {
+        for (Employee employee : employeeArray) {
+            if (this.age > 40)
+                employee.employeeInfo();
+        }
+    }*/
+
 }
