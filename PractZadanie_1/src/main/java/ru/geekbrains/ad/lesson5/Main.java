@@ -11,8 +11,9 @@ public class Main {
         employeeArray[4] = new Employee("Целиков Владимир Федорович", "Бухгалтер", "nunuprob80@gmail.com", 80000, 36);
 
         for (Employee employee : employeeArray) {
-            if (employee.age > 40)
+            if (employee.getEmployeeAge() > 40)
             employee.employeeInfo();
         }
+
     }
 }

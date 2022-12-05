@@ -5,7 +5,7 @@ public class Employee {
     private String jobTitle;
     private String email;
     private int salary;
-    public int age;
+    private int age;
 
     public Employee(String FIO, String jobTitle, String email, int salary, int age) {
         this.FIO = FIO;
@@ -27,15 +27,12 @@ public class Employee {
         this.email = " ";
     }
 
-    void employeeInfo() {
+    public void employeeInfo() {
         System.out.println(String.format("Сотрудник: %s, Должность: %s, Адрес электронной почты: %s, Зарплата: %s, Возраст: %s", FIO, jobTitle, email, salary, age));
     }
 
-     /*void getEmloyeeAge(Employee employeeArray) {
-        for (Employee employee : employeeArray) {
-            if (this.age > 40)
-                employee.employeeInfo();
-        }
-    }*/
+     public int getEmployeeAge() {
+         return age;
+    }
 
 }
