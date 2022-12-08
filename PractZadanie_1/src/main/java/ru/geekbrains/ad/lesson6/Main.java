@@ -1,6 +1,10 @@
 package ru.geekbrains.ad.lesson6;
 
 public class Main {
+
+    public static int animalCount;
+    public static int catsCount;
+    public static int dogsCount;
     public static void main(String[] args) {
 
         Animal[] animalsArray = new Animal[4];
@@ -13,10 +17,20 @@ public class Main {
             animal.viewInfo();
             animal.run();
             animal.swim();
+            if (animal.getKind() == "Кошка") {
+                catsCount++;
+                animalCount++;
+            } else if (animal.getKind() == "Собака") {
+                dogsCount++;
+                animalCount++;
+            } else {
+                animalCount++;
+            }
             System.out.println();
         }
 
-        //viewCatsCount();
-        //viewDogsCount();
+        System.out.printf("Количество кошек: %s%n", catsCount);
+        System.out.printf("Количество собак: %s%n", dogsCount);
+        System.out.printf("Количество животных: %s%n", animalCount);
     }
 }
