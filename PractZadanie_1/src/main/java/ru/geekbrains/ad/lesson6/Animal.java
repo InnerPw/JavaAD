@@ -7,6 +7,7 @@ public abstract class Animal {
     private int age;
     private int run;
     private int swim;
+    public int animalsCount;
 
     public Animal(String name, String kind, String color, int age, int run, int swim) {
         this.name = name;
@@ -15,6 +16,7 @@ public abstract class Animal {
         this.age = age;
         this.run = run;
         this.swim = swim;
+        animalsCount++;
     }
 
     public Animal(String name) {
@@ -44,5 +46,13 @@ public abstract class Animal {
 
     public void viewInfo() {
         System.out.printf("Данные о животном.%n Имя: %s%n Вид: %s%n Цвет: %s%n Возраст: %s%n", name, kind, color, age);
+    }
+
+    public void viewCount() {
+        System.out.printf("Количество животных: %s", animalsCount);
+    }
+
+    public int getAnimalsCount() {
+        return animalsCount;
     }
 }
