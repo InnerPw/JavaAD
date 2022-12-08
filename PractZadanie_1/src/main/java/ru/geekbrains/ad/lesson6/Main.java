@@ -17,10 +17,11 @@ public class Main {
             animal.viewInfo();
             animal.run();
             animal.swim();
-            if (animal.getKind() == "Кошка") {
+           // if (animal.getKind() == "Кошка") {
+            if (animal instanceof Cat) {
                 catsCount++;
                 animalCount++;
-            } else if (animal.getKind() == "Собака") {
+            } else if (animal instanceof Dog) {
                 dogsCount++;
                 animalCount++;
             } else {
@@ -32,5 +33,6 @@ public class Main {
         System.out.printf("Количество кошек: %s%n", catsCount);
         System.out.printf("Количество собак: %s%n", dogsCount);
         System.out.printf("Количество животных: %s%n", animalCount);
+
     }
 }

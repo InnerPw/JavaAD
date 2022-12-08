@@ -1,12 +1,12 @@
 package ru.geekbrains.ad.lesson6;
 
 public abstract class Animal {
-    private String name;
-    private String kind;
-    private String color;
-    private int age;
-    private int run;
-    private int swim;
+    protected String name;
+    protected String kind;
+    protected String color;
+    protected int age;
+    protected int run;
+    protected int swim;
 
     public Animal(String name, String kind, String color, int age, int run, int swim) {
         this.name = name;
@@ -49,4 +49,5 @@ public abstract class Animal {
     public String getKind() {
         return kind;
     }
+
 }
