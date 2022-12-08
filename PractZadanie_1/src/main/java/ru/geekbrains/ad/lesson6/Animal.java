@@ -36,7 +36,7 @@ public abstract class Animal {
 
     public void swim() {
         if (swim > 0) {
-            System.out.printf("%s %s может проплыть %s метров.%n", kind, name, run);
+            System.out.printf("%s %s может проплыть %s метров.%n", kind, name, swim);
         } else {
             System.out.printf("%s %s не может плавать.%n", kind, name);
         }
