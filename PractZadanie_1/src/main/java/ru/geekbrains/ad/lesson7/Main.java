@@ -15,6 +15,6 @@ public class Main {
         System.out.println("Еды в миске после кормежки: ");
         plate.info();
 
-        System.out.println("Кот сыт: " + cat.setSatiety());
+        System.out.println("Кот сыт: " + cat.getSatiety());
     }
 }

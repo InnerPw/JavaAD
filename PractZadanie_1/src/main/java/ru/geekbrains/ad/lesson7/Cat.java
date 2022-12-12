@@ -28,7 +28,7 @@ public class Cat {
         this.appetite = appetite;
     }
 
-    public boolean setSatiety() {
+    public boolean getSatiety() {
         return satiety;
     }
 
