@@ -26,4 +26,8 @@ public class Plate {
             food -= n;
         }
     }
+
+    public void addFood(int n) {
+
+    }
 }
