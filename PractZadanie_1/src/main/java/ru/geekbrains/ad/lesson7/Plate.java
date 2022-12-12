@@ -16,10 +16,14 @@ public class Plate {
     }
 
     public void info() {
-        System.out.println("plate: " + food);
+        System.out.println(food);
+        System.out.println();
     }
 
     public void decreaseFood(int n) {
-        food -= n;
+        // Задание 2. Сделать так, чтобы в тарелке с едой не могло получиться отрицательного количества еды (например, в миске 10 еды, а кот пытается покушать 15-20).
+        if ((food - n) >= 0) {
+            food -= n;
+        }
     }
 }
