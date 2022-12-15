@@ -3,6 +3,7 @@ package ru.geekbrains.ad.lessson8;
 import ru.geekbrains.ad.lessson8.components.DigitJButton;
 import ru.geekbrains.ad.lessson8.components.OperatorJButton;
 import ru.geekbrains.ad.lessson8.listener.ButtonListener;
+import ru.geekbrains.ad.lessson8.listener.ClearFieldButtonListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,9 +39,13 @@ public class ApplicationForm extends JFrame {
         JMenuBar menuBar = new JMenuBar();   //создается общая строка меню
 
         JMenu menuFile = new JMenu("File"); //создание пункта меню File
-        menuBar.add(menuFile);                 //меню File добавляется в общее меню menuBar
-        menuFile.add(new JMenuItem("Clear")); //создание подпункта Clear для меню File
+        JMenuItem clear = new JMenuItem("Clear");   //создание подпункта Clear для меню File - ДЕЙСТВУЮЩИЙ
+        clear.addActionListener(new ClearFieldButtonListener(inputField)); //
         menuFile.add(new JMenuItem("Exit"));
+
+        menuBar.add(menuFile);                 //меню File добавляется в общее меню menuBar
+       // menuFile.add(new JMenuItem("Clear")); //создание подпункта Clear для меню File
+
 
         menuBar.add(new JMenuItem("Help")); //создание пункта меню более быстрым способом
         menuBar.add(new JMenuItem("About"));
@@ -94,6 +99,7 @@ public class ApplicationForm extends JFrame {
         calc.setEnabled(false);
 
         JButton clear = new OperatorJButton("C");
+        clear.addActionListener(new ClearFieldButtonListener(inputField));
         digitsPanel.add(clear);
 
         return digitsPanel;
