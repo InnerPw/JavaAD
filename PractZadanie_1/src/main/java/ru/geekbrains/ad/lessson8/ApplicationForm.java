@@ -7,6 +7,7 @@ import ru.geekbrains.ad.lessson8.listener.ClearFieldButtonListener;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ApplicationForm extends JFrame {
@@ -43,12 +44,27 @@ public class ApplicationForm extends JFrame {
         clear.addActionListener(new ClearFieldButtonListener(inputField)); //
         menuFile.add(clear);
 
-        menuFile.add(new JMenuItem("Exit")); //создание подпункта Clear для меню File
+        //menuFile.add(new JMenuItem("Exit")); //создание подпункта Exit для меню File
         menuBar.add(menuFile);                 //меню File добавляется в общее меню menuBar
 
         menuBar.add(new JMenuItem("Help")); //создание пункта меню более быстрым способом
         menuBar.add(new JMenuItem("About"));
-        menuBar.add(new JMenuItem("Exit"));
+
+
+        //menuBar.add(new JMenuItem("Exit"));
+        JMenuItem exit = new JMenuItem("Exit");
+//        exit.addActionListener(new ActionListener() { //ActionListener создается прямо здесь как АНОНИМНЫЙ КЛАСС
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                System.exit(0);
+//            }
+//        });
+        // Либо как вариант одной строкой
+        exit.addActionListener(e -> System.exit(0)); //создается как ЛЯМБДА-ВЫРАЖЕНИЕ
+        menuBar.add(exit);  //пункт Exit добавлен в общее меню
+        menuFile.add(exit); //подпункт Exit добавлен и работает из меню File
+
+
 
         return menuBar;
     }
