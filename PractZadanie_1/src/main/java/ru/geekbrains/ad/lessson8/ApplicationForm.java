@@ -1,5 +1,8 @@
 package ru.geekbrains.ad.lessson8;
 
+import ru.geekbrains.ad.lessson8.components.DigitJButton;
+import ru.geekbrains.ad.lessson8.components.OperatorJButton;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -43,8 +46,19 @@ public class ApplicationForm extends JFrame {
     }
 
     private JPanel createTopPanel() {   //верхняя панель для ввода
+        JPanel top = new JPanel();
+        top.setLayout(new BorderLayout());
+        JTextField inputField = new JTextField();
+        inputField.setEditable(false);
+        top.add(inputField);
 
-        return null;
+        inputField.setFont(new Font("Arial",Font.PLAIN,25));
+        inputField.setMargin(new Insets(8,0,8,0));
+        inputField.setBackground(new Color(157, 199, 136));
+
+        inputField.setText("(1 + 2) / 3 = 1");
+
+        return top;
     }
 
     private JPanel createCenterPanel() {    //центральная панель для кнопок с цифрами и операторами
@@ -58,10 +72,42 @@ public class ApplicationForm extends JFrame {
     }
 
     private JPanel createDigitsPanel() {
-        return null;
+        JPanel digitsPanel = new JPanel();
+
+        digitsPanel.setLayout(new GridLayout(4, 3));
+
+        for (int i = 0; i < 10; i++) {
+            String buttonTitle = (i == 9) ? "0" : String.valueOf(i + 1); //если i равно 9, то вместо 9 добавляется 0
+            JButton btn = new DigitJButton(buttonTitle);
+            digitsPanel.add(btn);
+        }
+
+        JButton calc = new OperatorJButton("=");
+        digitsPanel.add(calc);
+        calc.setEnabled(false);
+
+        JButton clear = new OperatorJButton("C");
+        digitsPanel.add(clear);
+
+        return digitsPanel;
     }
 
     private JPanel createOperatorsPanel() {
-        return null;
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(4,1));
+
+        JButton minus = new OperatorJButton("-");
+        panel.add(minus);
+
+        JButton plus = new OperatorJButton("+");
+        panel.add(plus);
+
+        JButton multiply = new OperatorJButton("x");
+        panel.add(multiply);
+
+        JButton divide = new OperatorJButton("/");
+        panel.add(divide);
+
+        return panel;
     }
 }
