@@ -19,14 +19,14 @@ public class ApplicationForm extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE); //реакция на закрытие приложения
         setAlwaysOnTop(true); //окно появляется поверх остальных
 
-        setJMenuBar(createMenu());
-
         setLayout(new BorderLayout()); //компоновщик элементов в окне
 
         //add(new Button("Кнопка"), BorderLayout.EAST); //создается кнопка и указывается её расположение с помощью компоновщика
-        // add(new Button("Кнопка"), BorderLayout.WEST);
+        //add(new Button("Кнопка"), BorderLayout.WEST);
 
         add(createTopPanel(), BorderLayout.NORTH);
+
+        setJMenuBar(createMenu());
 
         add(createCenterPanel(), BorderLayout.CENTER);
 
@@ -41,11 +41,10 @@ public class ApplicationForm extends JFrame {
         JMenu menuFile = new JMenu("File"); //создание пункта меню File
         JMenuItem clear = new JMenuItem("Clear");   //создание подпункта Clear для меню File - ДЕЙСТВУЮЩИЙ
         clear.addActionListener(new ClearFieldButtonListener(inputField)); //
-        menuFile.add(new JMenuItem("Exit"));
+        menuFile.add(clear);
 
+        menuFile.add(new JMenuItem("Exit")); //создание подпункта Clear для меню File
         menuBar.add(menuFile);                 //меню File добавляется в общее меню menuBar
-       // menuFile.add(new JMenuItem("Clear")); //создание подпункта Clear для меню File
-
 
         menuBar.add(new JMenuItem("Help")); //создание пункта меню более быстрым способом
         menuBar.add(new JMenuItem("About"));
