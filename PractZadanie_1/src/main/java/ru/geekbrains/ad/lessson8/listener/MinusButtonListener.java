@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
 public class MinusButtonListener implements ActionListener {
 
     private JTextField inputField;
+    private int operator; // (1 -> +), (2 -> -), (3 -> x), (4 -> /)
+    private int firstNumber;
+    private int secondNumber;
 
     public MinusButtonListener(JTextField inputField) {
         this.inputField = inputField;

@@ -18,7 +18,7 @@ import java.awt.event.ActionListener;
 public class ApplicationForm extends JFrame {
 
     private JTextField inputField;
-    private int operator; // (1 -> +), (2 -> -), (3 -> x), (4 -> /)
+
 
     public ApplicationForm(String title) {
         super(title);
@@ -149,4 +149,5 @@ public class ApplicationForm extends JFrame {
 
         return panel;
     }
+
 }

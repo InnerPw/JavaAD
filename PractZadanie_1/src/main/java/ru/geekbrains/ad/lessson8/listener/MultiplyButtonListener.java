@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
 public class MultiplyButtonListener implements ActionListener {
 
     private JTextField inputField;
+    private int operator; // (1 -> +), (2 -> -), (3 -> x), (4 -> /)
+    private int firstNumber;
+    private int secondNumber;
 
     public MultiplyButtonListener(JTextField inputField) {
         this.inputField = inputField;

@@ -9,6 +9,12 @@ import java.awt.event.ActionListener;
 public class ButtonListener implements ActionListener {
 
     private JTextField inputField;
+    private int operator; // (1 -> +), (2 -> -), (3 -> x), (4 -> /)
+    private int firstNumber;
+    private int secondNumber;
+
+
+    private String text = new String();
 
     public ButtonListener(JTextField inputField) {
         this.inputField = inputField;
@@ -17,6 +23,12 @@ public class ButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton btn = (JButton) e.getSource();
-        inputField.setText(inputField.getText() + " " + btn.getText());
+        text = inputField.getText();
+        if (text.equals("+") || text.equals(" -") || text.equals(" x") || text.equals(" /")) {
+            inputField.setText(btn.getText());
+        } else {
+            inputField.setText(inputField.getText() + btn.getText());
+        }
+
     }
 }

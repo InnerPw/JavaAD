@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
 public class DivideButtonListener implements ActionListener {
 
     private JTextField inputField;
+    private int operator; // (1 -> +), (2 -> -), (3 -> x), (4 -> /)
+    private int firstNumber;
+    private int secondNumber;
 
     public DivideButtonListener(JTextField inputField) {
         this.inputField = inputField;
