@@ -4,6 +4,11 @@ import ru.geekbrains.ad.lessson8.components.DigitJButton;
 import ru.geekbrains.ad.lessson8.components.OperatorJButton;
 import ru.geekbrains.ad.lessson8.listener.ButtonListener;
 import ru.geekbrains.ad.lessson8.listener.ClearFieldButtonListener;
+import ru.geekbrains.ad.lessson8.listener.PlusButtonListener;
+import ru.geekbrains.ad.lessson8.listener.MinusButtonListener;
+import ru.geekbrains.ad.lessson8.listener.MultiplyButtonListener;
+import ru.geekbrains.ad.lessson8.listener.DivideButtonListener;
+import ru.geekbrains.ad.lessson8.listener.CalculateButtonListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -129,7 +134,7 @@ public class ApplicationForm extends JFrame {
         panel.add(minus);
 
         JButton plus = new OperatorJButton("+");
-        plus.addActionListener(buttonListener);
+        plus.addActionListener(new PlusButtonListener(inputField));
         panel.add(plus);
 
         JButton multiply = new OperatorJButton("x");
