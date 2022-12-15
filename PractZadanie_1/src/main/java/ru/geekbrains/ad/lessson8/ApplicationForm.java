@@ -2,11 +2,15 @@ package ru.geekbrains.ad.lessson8;
 
 import ru.geekbrains.ad.lessson8.components.DigitJButton;
 import ru.geekbrains.ad.lessson8.components.OperatorJButton;
+import ru.geekbrains.ad.lessson8.listener.ButtonListener;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class ApplicationForm extends JFrame {
+
+    private JTextField inputField;
 
     public ApplicationForm(String title) {
         super(title);
@@ -48,7 +52,7 @@ public class ApplicationForm extends JFrame {
     private JPanel createTopPanel() {   //верхняя панель для ввода
         JPanel top = new JPanel();
         top.setLayout(new BorderLayout());
-        JTextField inputField = new JTextField();
+        inputField = new JTextField();
         inputField.setEditable(false);
         top.add(inputField);
 
@@ -56,7 +60,7 @@ public class ApplicationForm extends JFrame {
         inputField.setMargin(new Insets(8,0,8,0));
         inputField.setBackground(new Color(157, 199, 136));
 
-        inputField.setText("(1 + 2) / 3 = 1");
+        //inputField.setText("(1 + 2) / 3 = 1");
 
         return top;
     }
@@ -65,13 +69,15 @@ public class ApplicationForm extends JFrame {
         JPanel centerPanel = new JPanel();  //создается элемент класса для центральной панели
         centerPanel.setLayout(new BorderLayout()); //подключается компоновщик элементов в рамках панели
 
-        centerPanel.add(createDigitsPanel(), BorderLayout.CENTER);  //создается внутренняя панель для цифр
-        centerPanel.add(createOperatorsPanel(), BorderLayout.WEST); //создается внутренняя панель для операторов
+        ActionListener buttonListener = new ButtonListener(inputField);
+
+        centerPanel.add(createDigitsPanel(buttonListener), BorderLayout.CENTER);  //создается внутренняя панель для цифр
+        centerPanel.add(createOperatorsPanel(buttonListener), BorderLayout.WEST); //создается внутренняя панель для операторов
 
         return centerPanel;
     }
 
-    private JPanel createDigitsPanel() {
+    private JPanel createDigitsPanel(ActionListener buttonListener) {
         JPanel digitsPanel = new JPanel();
 
         digitsPanel.setLayout(new GridLayout(4, 3));
@@ -79,6 +85,7 @@ public class ApplicationForm extends JFrame {
         for (int i = 0; i < 10; i++) {
             String buttonTitle = (i == 9) ? "0" : String.valueOf(i + 1); //если i равно 9, то вместо 9 добавляется 0
             JButton btn = new DigitJButton(buttonTitle);
+            btn.addActionListener(buttonListener);
             digitsPanel.add(btn);
         }
 
@@ -92,20 +99,24 @@ public class ApplicationForm extends JFrame {
         return digitsPanel;
     }
 
-    private JPanel createOperatorsPanel() {
+    private JPanel createOperatorsPanel(ActionListener buttonListener) {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4,1));
 
         JButton minus = new OperatorJButton("-");
+        minus.addActionListener(buttonListener);
         panel.add(minus);
 
         JButton plus = new OperatorJButton("+");
+        plus.addActionListener(buttonListener);
         panel.add(plus);
 
         JButton multiply = new OperatorJButton("x");
+        multiply.addActionListener(buttonListener);
         panel.add(multiply);
 
         JButton divide = new OperatorJButton("/");
+        divide.addActionListener(buttonListener);
         panel.add(divide);
 
         return panel;
