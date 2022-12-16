@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ApplicationForm extends JFrame {
-
+    // https://www.youtube.com/watch?v=vNejtTKYAyM пример решения
     private JTextField inputField;
 
 //    private Double operand1;
